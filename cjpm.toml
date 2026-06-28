@@ -1,29 +1,7 @@
 [package]
-name = "cangjie-ci-demo"
+name = "cjDemo"
 version = "1.0.0"
-description = "仓颉单元测试 CI/CD 演示项目 — Cangjie Unit Test CI/CD Demo"
+description = "仓颉单元测试 CI/CD 演示项目"
 authors = ["东北大学软件学院"]
 
-# 仓颉语言版本要求
-[cj]
-version = "1.0.0"
-
-[package.dependencies]
-# 无外部依赖 — 仅使用标准库 std.unittest
-
-# 测试配置 — 在 CI 环境中使用 cjpm test --profile=ci 即可自动应用
-[profile.ci]
-parallel = true
-no-color = true
-timeout-each = "2m"
-report-path = "test-reports"
-report-format = "xml"
-
-[profile.ci.build]
-lto = "thin"
-mock = "on"
-
-# 开发测试配置
-[profile.test]
-parallel = true
-verbose = true
+# 仅依赖标准库，无需额外声明
