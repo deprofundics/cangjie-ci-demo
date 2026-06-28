@@ -33,8 +33,7 @@ on:
         default: false
 
 env:
-  CARGO_TERM_COLOR: always
-  CJPM_PROFILE: ci
+  CJPM_COLOR: never
 
 jobs:
   # ============================================================
@@ -72,13 +71,15 @@ jobs:
 
       # --- 步骤 4: 编译检查 ---
       - name: 🔨 编译检查 (cjpm build)
-        run: cjpm build --profile=ci
+        run: cjpm build
 
       # --- 步骤 5: 运行全量单元测试 ---
-      # --profile=ci 自动应用 cjpm.toml 中 [profile.ci] 的配置
+      # 使用直接参数而非 profile (cjpm 的 profile 系统略有不同)
       - name: 🧪 运行单元测试 (cjpm test)
         run: |
-          cjpm test --profile=ci \
+          cjpm test \
+            --parallel=true \
+            --timeout-each=2m \
             --report-path=test-reports \
             --report-format=xml \
             --no-progress
@@ -149,7 +150,7 @@ jobs:
           version: auto
 
       - name: 🔨 编译检查 (跨平台)
-        run: cjpm build --profile=ci
+        run: cjpm build
 
       - name: 🧪 快速冒烟测试
         run: cjpm test --include-tags=Smoke --no-progress
