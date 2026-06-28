@@ -1,7 +1,6 @@
 [package]
 name = "cjDemo"
 version = "1.0.0"
+cjc-version = "1.0.5"
 description = "仓颉单元测试 CI/CD 演示项目"
 authors = ["东北大学软件学院"]
-
-# 仅依赖标准库，无需额外声明
