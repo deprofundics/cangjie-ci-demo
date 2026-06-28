@@ -2,5 +2,6 @@
 name = "cjDemo"
 version = "1.0.0"
 cjc-version = "1.0.5"
+output-type = "executable"
 description = "仓颉单元测试 CI/CD 演示项目"
 authors = ["东北大学软件学院"]
